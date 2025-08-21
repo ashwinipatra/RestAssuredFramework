@@ -1,0 +1,44 @@
+[
+	{
+		"name": "Aurora MacGyver",
+		"age": 47,
+		"gender": "Female",
+		"companies": [
+			{
+				"name": "Rempel LLC",
+				"location": "Tillmanfurt",
+				"datacenter": "New Elroyfurt-bdb"
+			},
+			{
+				"name": "Cormier, Schmidt and Ernser",
+				"location": "Port Gale",
+				"datacenter": "South Ellen-acf"
+			}
+		],
+		"email": "scot.tromp@gmail.com",
+		"phone": "1-819-309-6181",
+		"address": "8553 Britt Mall, Grantfurt, MO 62861",
+		"status": true
+	},
+	{
+		"name": "Rosie Ward",
+		"age": 29,
+		"gender": "Female",
+		"companies": [
+			{
+				"name": "Kulas-Hickle",
+				"location": "Schambergertown",
+				"datacenter": "Bertramfurt-hcp"
+			},
+			{
+				"name": "Gorczany-West",
+				"location": "North Merrillside",
+				"datacenter": "Sauerborough-wtt"
+			}
+		],
+		"email": "dianna.smitham@hotmail.com",
+		"phone": "(625) 308-8094",
+		"address": "Apt. 281 87597 Hirthe Hills, South Harley, OR 73043",
+		"status": true
+	}
+]

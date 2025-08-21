@@ -1,0 +1,6 @@
+reports/
+setup*
+logs/
+test-output/
+target/
+

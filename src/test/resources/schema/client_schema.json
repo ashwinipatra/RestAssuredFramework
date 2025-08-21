@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "gender": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "companies": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "datacenter": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "location",
+            "datacenter"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "location": {
+              "type": "string"
+            },
+            "datacenter": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "location",
+            "datacenter"
+          ]
+        }
+      ]
+    },
+    "email": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "address": {
+      "type": "string"
+    },
+    "status": {
+      "type": "boolean"
+    }
+  },
+  "required": [
+    "id",
+    "name",
+    "gender",
+    "age",
+    "companies",
+    "email",
+    "phone",
+    "address",
+    "status"
+  ]
+}
