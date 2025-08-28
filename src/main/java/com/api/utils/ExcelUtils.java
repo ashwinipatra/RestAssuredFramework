@@ -18,17 +18,12 @@ import com.api.enums.ExcelFile;
 import com.api.enums.ExcelSheet;
 import com.api.exceptions.FWFileNotFoundException;
 import com.api.exceptions.FWIOException;
-import com.api.models.Runner;
 import com.creditdatamw.zerocell.Reader;
 
 public final class ExcelUtils {
 
 	private ExcelUtils() {
 
-	}
-	public static void main(String[] args) {
-		System.out.println(read(ExcelFile.RUNNER,ExcelSheet.TESTCASES));
-		System.out.println(read(ExcelFile.RUNNER,ExcelSheet.TESTCASES,Runner.class));
 	}
 
 	public static List<Map<String, String>> read(ExcelFile excelFile, ExcelSheet excelSheet) {

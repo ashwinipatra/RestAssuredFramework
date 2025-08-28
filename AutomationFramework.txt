@@ -1,0 +1,80 @@
+-----
+Tools
+-----
+	* Web Testing		- Selenium, Java
+	* API Testing		- Rest Assured
+	* Test Execution 	- TestNG
+	* Build Management	- Maven
+	* Reporting			- ExtentReports
+	* Test Data/Runner	- Apache POI,Zerocell
+	* Execution 		- Jenkins
+	* Remote Execution 	- AWS EC2/Docker
+	* SCM 				- Git and Bitbucket
+
+----------------
+Folder Structure
+----------------
+	* src/main/java
+	---------------
+		* annotations
+			* Authors						- Create custom annotation for test cases
+		* constants
+			* Constants						- Class to manage project constants
+		* exceptions
+			* FWException					- Custom exceptions extending RuntimeException
+			* FWFileNotFoundException
+			* FWIOException
+		* enums
+			* ConfigProperty				- Enum for property list
+			* ExcelFile						- Enum for excel file
+			* ExcelSheet					- Enum for excel sheet
+		* reports
+			* ExtentTestManager				- Make ExtentTest thread safe
+			* ExtentReport 					- Create report and tests
+		* listeners
+			* Listener						- Create/publish report, Create tests and log their status
+			* RetryAnalyzer					- Retrying failed test cases
+			* AnnotationTransformer			- Add annotations to test cases from runner file - POI/zerocell
+		* loggers
+			* ExtentLogger 					- Log in report
+			* Log4jLogger					- Log in logs
+			* LogFilter						- Log request/response
+		* utils
+			* PropertyUtils					- Singleton Class
+			* ExcelUtils					- POI/Zerocell
+			* JsonUtils 					- Jacksonbind deserialization
+			* DateUtils						- Get current datetime
+			* FakerUtils					- Generate fake data
+			* DataProviderUtils					
+		* models
+			* request
+			* response
+			* others
+		* builder
+			* dataBuilder					- Create pojo objects
+			* requestBuilder				- Build API request
+		* services
+			* ClientService					- Service/Business Layer
+	* src/main/resources
+	--------------------
+		* log4j2.xml
+	* src/test/java
+	---------------
+		* assertions
+			* ResponseAssertion				- Extends AbstractAssert
+			* ClientAssertion
+		* dataproviders
+		* tests
+	* src/test/resources
+	-------------------
+		* config
+			* config.properties
+		* testdata
+			* testdata.xlsx
+			* client.json
+		* runner
+			* runner.xlsx
+		* schemas
+	* reports
+	* responses
+	

@@ -8,7 +8,7 @@ import com.api.utils.PropertyUtils;
 
 public class RetryAnalyzer implements IRetryAnalyzer {
 
-	private int retries = Integer.parseInt(PropertyUtils.read(ConfigProperty.RETRIES));
+	private int retries = Integer.parseInt(PropertyUtils.get(ConfigProperty.RETRIES));
 
 	@Override
 	public boolean retry(ITestResult result) {

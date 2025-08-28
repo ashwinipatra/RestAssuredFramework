@@ -8,9 +8,11 @@
 	<properties>
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<rest.assured.version>5.5.6</rest.assured.version>
 		<testng.version>7.11.0</testng.version>
-		<testng.suite.xml>testng.xml</testng.suite.xml>
+		<suite>testng</suite>
+		<env>dev</env>
 	</properties>
 	<dependencies>
 		<!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
@@ -92,6 +94,23 @@
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
 			<version>2.25.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/com.mysql/mysql-connector-j -->
+		<dependency>
+			<groupId>com.mysql</groupId>
+			<artifactId>mysql-connector-j</artifactId>
+			<version>9.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.zaxxer</groupId>
+			<artifactId>HikariCP</artifactId>
+			<version>5.0.1</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.jdbi/jdbi3-core -->
+		<dependency>
+			<groupId>org.jdbi</groupId>
+			<artifactId>jdbi3-core</artifactId>
+			<version>3.49.5</version>
 		</dependency>
 	</dependencies>
 	<build>

@@ -3,73 +3,50 @@ package com.api.utils;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
+import java.io.InputStream;
 import java.util.Properties;
 
 import org.aeonbits.owner.ConfigFactory;
 
 import com.api.constants.Constants;
 import com.api.enums.ConfigProperty;
-import com.api.exceptions.FWFileNotFoundException;
-import com.api.exceptions.FWIOException;
-import com.api.exceptions.FWInvalidArgumentException;
+import com.api.exceptions.FWException;
+import com.api.loggers.Log4jLogger;
 
 public final class PropertyUtils {
 
+	private static final Properties prop = new Properties();
+	private static final Log4jLogger logger = new Log4jLogger(PropertyUtils.class);
+
 	private PropertyUtils() {
-
-	
 	}
 
-	private static PropertyUtils instance = null;
-	private static Map<String, String> configMap = null;
-
-	private void init() {
-		configMap = new HashMap<>();
-		try (FileInputStream fis = new FileInputStream(Constants.getConfigFilePath())) {
-			Properties prop = new Properties();
-			prop.load(fis);
-			prop.forEach((k, v) -> configMap.put(String.valueOf(k), String.valueOf(v)));
-
-		} catch (FileNotFoundException fnfe) {
-			throw new FWFileNotFoundException(
-					"Properites file not found in locateon: " + Constants.getConfigFilePath());
-		} catch (IOException ioe) {
-			throw new FWIOException("Propety file could not be read");
-		}
-	}
-
-	private Map<String, String> getMap() {
-		return configMap;
-	}
-
-	//singleton - double null check 
-	private static Map<String, String> getInstance() {
-		if (Objects.isNull(instance)) {
-			synchronized (PropertyUtils.class) {
-				if (Objects.isNull(instance)) {
-					instance = new PropertyUtils();
-					instance.init();
-				}
-			}
-		}
-		return instance.getMap();
-	}
-
-	public static String read(ConfigProperty configPropety) {
-
-		Map<String, String> configMap = getInstance();
-		String prop = String.valueOf(configPropety).toLowerCase();
-
-		if (Objects.isNull(configMap.get(prop)) || configMap.get(prop).isBlank() || configMap.get(prop).isEmpty()) {
-			throw new FWInvalidArgumentException("Property: "+ prop +  " is either null or emtpy");
+	static {
+		String propFile = Constants.getConfigFilePath();
+		try (InputStream input = new FileInputStream(propFile)) {
+			prop.load(input);
+			logger.info("Successfully Loaded config file from: " + propFile);
+			
+		} catch (FileNotFoundException e) {
+			logger.error("File could not be found", e);
+			throw new FWException("Terminating program",e);
+		} catch (IOException e) {
+			logger.error("File could not be read", e);
+			throw new FWException("Terminating program",e);
 		}
 
-		return configMap.get(prop).toLowerCase().trim();
-
 	}
+
+	public static String get(ConfigProperty configProperty) {
+		String key = configProperty.getKeyName();
+		String value = prop.getProperty(key);
+		if (value == null || value.isBlank()) {
+			logger.error("Property value is null or blank");
+			throw new FWException("Terminating program");
+		}
+		return value;
+	}
+
 
 	
 	public static IConfig read() {

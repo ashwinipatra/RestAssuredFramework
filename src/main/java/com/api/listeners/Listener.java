@@ -12,7 +12,7 @@ import com.api.reports.ExtentReport;
 
 public class Listener implements ISuiteListener, ITestListener {
 
-	private static final Log4jLogger logger = new Log4jLogger(Listener.class);
+	private final Log4jLogger logger = new Log4jLogger(Listener.class);
 	@Override
 	public void onStart(ISuite suite) {
 		logger.info("Started running suite: " + suite.getName());

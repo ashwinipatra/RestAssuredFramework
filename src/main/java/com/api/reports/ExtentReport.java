@@ -18,8 +18,8 @@ public final class ExtentReport {
 
 	}
 	private static final ExtentReports report = new ExtentReports();
-	private static final String documentTitle = PropertyUtils.read(ConfigProperty.DOCUMENT_TITLE);
-	private static final String reportName = PropertyUtils.read(ConfigProperty.REPORT_NAME);
+	private static final String documentTitle = PropertyUtils.get(ConfigProperty.DOCUMENT_TITLE);
+	private static final String reportName = PropertyUtils.get(ConfigProperty.REPORT_NAME);
 	private static final Theme theme = Theme.DARK;
 	private static final String reportFilePath = Constants.getReportFilePath();
 
@@ -30,6 +30,9 @@ public final class ExtentReport {
 		spark.config().setDocumentTitle(documentTitle);
 		spark.config().setReportName(reportName);
 		spark.config().setTheme(theme);
+		report.setSystemInfo("reporter", "Ashwini");
+		report.setSystemInfo("os", "MAC-OS");
+		report.setSystemInfo("device", "pc");
 	}
 
 	public static void flushReport() {
