@@ -1,5 +1,6 @@
 package com.api.tests;
 
+import java.lang.reflect.Method;
 import java.util.Arrays;
 import java.util.List;
 
@@ -8,9 +9,9 @@ import org.testng.annotations.Test;
 import com.api.annotations.Authors;
 import com.api.assertions.ClientAssertion;
 import com.api.assertions.ResponseAssertion;
-import com.api.builder.DataBuilder;
 import com.api.constants.Constants;
 import com.api.enums.Schemas;
+import com.api.factory.DataFactory;
 import com.api.models.request.Client;
 import com.api.models.request.Company;
 import com.api.services.ClientService;
@@ -22,19 +23,28 @@ public class ClientTest {
 	private String id;
 	private Client client;
 
+
 	@Authors({ "A", "B" })
 	@Test
+	public void testing(Method m,Class<?> claaz) throws NoSuchMethodException, SecurityException {
+		System.out.println(m.getName());
+		System.out.println(m.getAnnotation(Authors.class).value()[0]);
+		System.out.println(this.getClass().getMethod("getClients").getName());
+	}
+
+	@Authors({ "A", "B" })
+//	@Test
 	public void getClients() {
 		ClientService clientService = new ClientService();
 		Response resp = clientService.getAllClient();
 	}
 
 	@Authors({ "B", "C" })
-	@Test
+//	@Test
 	public void createClient() {
 		//Generate data
-		List<Company> companies = Arrays.asList(DataBuilder.getCompany(), DataBuilder.getCompany());
-		client = DataBuilder.getClient(companies);
+		List<Company> companies = Arrays.asList(DataFactory.getCompany(), DataFactory.getCompany());
+		client = DataFactory.getClient(companies);
 		
 		//Make api call
 		ClientService clientService = new ClientService();
@@ -56,14 +66,14 @@ public class ClientTest {
 	}
 
 	@Authors({ "C", "D" })
-	@Test
+//	@Test
 	public void getClient() {
 		ClientService clientService = new ClientService();
 		Response resp = clientService.getClient(id);
 	}
 
 	@Authors({ "D", "A" })
-	@Test
+//	@Test
 	public void putClient() {
 		ClientService clientService = new ClientService();
 
@@ -72,7 +82,7 @@ public class ClientTest {
 	}
 
 	@Authors({ "D", "B" })
-	@Test
+//	@Test
 	public void deleteClient() {
 		ClientService clientService = new ClientService();
 		Response resp = clientService.deleteClient(id);

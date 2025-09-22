@@ -68,7 +68,7 @@ public final class Constants {
 	}
 
 	public static String getDbUserPassword() {
-		return EncoderUtils.decode(DB_PASSWORD);
+		return EncoderUtils.base64decode(DB_PASSWORD);
 	}
 
 	public static String getConfigFilePath() {

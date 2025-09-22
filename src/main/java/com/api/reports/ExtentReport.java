@@ -48,15 +48,15 @@ public final class ExtentReport {
 		}
 	}
 
-	public static void createTest(String testName) {
-		ExtentTestManager.set(report.createTest(testName));
+	public static void createTest(String testName, String testDescription) {
+		ExtentTestManager.set(report.createTest(testName, testDescription));
 	}
 	
-	public static void setGroups(String[] groups) {
+	public static void setGroups(String... groups) {
 		getTest().assignCategory(groups);
 	}
 
-	public static void setAuthors(String[] authors) {
+	public static void setAuthors(String... authors) {
 		getTest().assignAuthor(authors);
 	}
 

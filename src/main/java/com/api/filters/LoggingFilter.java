@@ -1,8 +1,10 @@
-package com.api.loggers;
+package com.api.filters;
 
 import java.util.List;
 import java.util.Objects;
 
+import com.api.loggers.ExtentLogger;
+import com.api.loggers.Log4jLogger;
 import com.aventstack.extentreports.markuputils.CodeLanguage;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
@@ -25,11 +27,11 @@ public class LoggingFilter implements Filter {
 		logRequest(requestSpec);
 		Response resp = ctx.next(requestSpec, responseSpec);
 		logResponse(resp);
+		
 		return resp;
 	}
 
 	private  static void logRequest(FilterableRequestSpecification requestSpec) {
-
 		String requestMessage = "*********** Request Details *********** ";
 		String requestMethod = requestSpec.getMethod();
 		String requestUrl = requestSpec.getURI();
@@ -42,6 +44,7 @@ public class LoggingFilter implements Filter {
 		logger.info("Method: " + requestMethod);
 		ExtentLogger.info(MarkupHelper.createLabel("Method: ", ExtentColor.BLUE));
 		ExtentLogger.info(requestMethod);
+		
 
 		logger.info("Url: " + requestUrl);
 		ExtentLogger.info(MarkupHelper.createLabel("Url: ", ExtentColor.BLUE));
@@ -55,7 +58,7 @@ public class LoggingFilter implements Filter {
 			logger.info("Payload: " + requestBody);
 			ExtentLogger.info(MarkupHelper.createLabel("Payload: ", ExtentColor.BLUE));
 			ExtentLogger.info(MarkupHelper.createCodeBlock(requestBody, CodeLanguage.JSON));
-		}
+			}
 
 	}
 

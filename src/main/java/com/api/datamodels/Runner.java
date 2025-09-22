@@ -1,4 +1,4 @@
-package com.api.models;
+package com.api.datamodels;
 
 import com.api.models.converters.StringToBoolean;
 import com.api.models.converters.StringToInteger;

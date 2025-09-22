@@ -29,10 +29,10 @@ public final class PropertyUtils {
 			
 		} catch (FileNotFoundException e) {
 			logger.error("File could not be found", e);
-			throw new FWException("Terminating program",e);
+			System.exit(0);
 		} catch (IOException e) {
 			logger.error("File could not be read", e);
-			throw new FWException("Terminating program",e);
+			System.exit(0);
 		}
 
 	}

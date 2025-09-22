@@ -6,7 +6,7 @@ import com.api.models.request.Client;
 
 import io.restassured.response.Response;
 
-public class ClientService {
+public class ClientService2  extends BaseRequestSpec2{
 	
 	/*
 	 * http://server-name/api-auth/login
@@ -24,10 +24,9 @@ public class ClientService {
 		
 		String endpoint = "/{id}";
 		
-		
 		Map<String, String> pathParamMap = Map.of("id",id);
 		
-		return BaseRequestSpec.getWithPath(
+		return getWithPath(
 				BASE_URL, 
 				BASE_PATH , 
 				endpoint,
@@ -40,7 +39,7 @@ public class ClientService {
 
 		String endpoint = "/";
 
-		return BaseRequestSpec.get(
+		return get(
 				BASE_URL, 
 				BASE_PATH,
 				endpoint,
@@ -65,7 +64,7 @@ public class ClientService {
 		
 		Client updatedClient = client.toBuilder().setAge(0).build();
 		
-		return BaseRequestSpec.put(
+		return put(
 				BASE_URL, 
 				BASE_PATH,
 				endpoint, 
@@ -79,7 +78,7 @@ public class ClientService {
 		String endpoint = "/{id}";
 		Map<String, String> pathParamMap = Map.of("id", id);
 		
-		return BaseRequestSpec.delete(
+		return delete(
 				BASE_URL, 
 				BASE_PATH,
 				endpoint, 

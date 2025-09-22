@@ -3,7 +3,7 @@
 <suite name="Suite">
 <listeners>
 	<listener class-name="com.api.listeners.AnnotationTransformer"></listener>
-	<listener class-name="com.api.listeners.Listener"></listener>
+	<listener class-name="com.api.listeners.ExtentListener"></listener>
 </listeners>
   <test thread-count="5" name="Test">
     <classes>

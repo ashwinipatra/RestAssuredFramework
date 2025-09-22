@@ -1,4 +1,4 @@
-package com.api.builder;
+package com.api.factory;
 
 import java.util.List;
 
@@ -6,9 +6,9 @@ import com.api.models.request.Client;
 import com.api.models.request.Company;
 import com.api.utils.FakerUtils;
 
-public final class DataBuilder {
+public final class DataFactory {
 
-	private DataBuilder() {
+	private DataFactory() {
 
 	}
 

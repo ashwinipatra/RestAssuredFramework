@@ -9,9 +9,9 @@ import java.util.List;
 import org.jdbi.v3.core.Jdbi;
 
 import com.api.constants.Constants;
+import com.api.datamodels.Student;
 import com.api.exceptions.FWException;
 import com.api.loggers.Log4jLogger;
-import com.api.models.Student;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 

@@ -44,13 +44,19 @@
 			<artifactId>poi-ooxml</artifactId>
 			<version>5.4.1</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
+		<!-- https://mvnrepository.com/artifact/com.opencsv/opencsv -->
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>5.12.0</version>
+		</dependency>		<!--
+		https://mvnrepository.com/artifact/org.aeonbits.owner/owner -->
 		<dependency>
 			<groupId>org.aeonbits.owner</groupId>
 			<artifactId>owner</artifactId>
 			<version>1.0.12</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports  -->
 		<dependency>
 			<groupId>com.aventstack</groupId>
 			<artifactId>extentreports</artifactId>
@@ -121,7 +127,7 @@
 				<version>3.5.3</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>${suite}.xml</suiteXmlFile>
+						<suiteXmlFile>src/test/resources/runner/${suite}.xml</suiteXmlFile>
 					</suiteXmlFiles>
 					<systemPropertyVariables>
 						<environment>${env}</environment>

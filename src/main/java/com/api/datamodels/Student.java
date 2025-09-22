@@ -1,10 +1,14 @@
-package com.api.models;
+package com.api.datamodels;
 
 import lombok.Data;
 
 @Data
 public class Student {
 
-	private int id;
+	public int id;
 	private String studentName;
+	
+	public Student() {}
+	
+		
 }
